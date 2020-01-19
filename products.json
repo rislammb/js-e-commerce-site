@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "sys": { "id": "1" },
+      "fields": {
+        "title": "capsule kobi",
+        "price": 8.0,
+        "image": { "fields": { "file": { "url": "img/kobi.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "2" },
+      "fields": {
+        "title": "capsule jonort",
+        "price": 7.0,
+        "image": { "fields": { "file": { "url": "img/jonort.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "3" },
+      "fields": {
+        "title": "capsule lina",
+        "price": 9.0,
+        "image": { "fields": { "file": { "url": "img/lina.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "4" },
+      "fields": {
+        "title": "capsule kobi",
+        "price": 8.0,
+        "image": { "fields": { "file": { "url": "img/kobi.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "5" },
+      "fields": {
+        "title": "capsule jonort",
+        "price": 7.0,
+        "image": { "fields": { "file": { "url": "img/jonort.jpg" } } }
+      }
+    },
+    {
+      "sys": { "id": "6" },
+      "fields": {
+        "title": "capsule lina",
+        "price": 9.0,
+        "image": { "fields": { "file": { "url": "img/lina.jpg" } } }
+      }
+    }
+  ]
+}
