@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web&display=swap');
 :root {
-  --primaryColor: #51b0f0;
+  --primaryColor: #3296d8;
   --mainWhite: #efefef;
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -12,6 +12,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+html,
 body {
   color: var(--mainBlack);
   background: var(--mainWhite);
@@ -21,6 +22,8 @@ body {
 
 /* Navbar */
 .navbar {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2), 1px 3px 8px rgba(0, 0, 0, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   height: 60px;
@@ -72,14 +75,16 @@ body {
 /* Hero */
 .hero {
   min-height: calc(100vh - 60px);
-  background: url('./img/kobi.jpg') center/cover no-repeat;
+  background: url('./img/medicine.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .banner {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2), 1px 3px 8px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.45);
   text-align: center;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.6);
   display: inline-block;
   padding: 2rem;
 }
@@ -95,6 +100,7 @@ body {
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   font-size: 1rem;
+  text-decoration: none;
   background: var(--primaryColor);
   color: var(--mainWhite);
   border: 1px solid var(--primaryColor);
@@ -108,23 +114,34 @@ body {
 
 /* Products */
 .products {
-  padding: 4rem 0;
-}
-.section-title h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 5rem;
-  text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
-}
-.products-center {
+  padding: 2rem 0;
   width: 90vw;
   margin: 0 auto;
   max-width: 1140px;
+}
+.section-title h2 {
+  text-shadow: 1px 2px 2px rgba(120, 120, 120, 0.4);
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--mainBlack);
+  margin-bottom: 0.7rem;
+  text-transform: capitalize;
+  letter-spacing: var(--mainSpacing);
+}
+.products-hr {
+  margin-bottom: 2.5rem;
+  border-top: 1px solid #777;
+  border-bottom: none;
+}
+.products-center {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
+}
+.product {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2), 1px 3px 8px rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.45);
 }
 .img-container {
   position: relative;
@@ -158,6 +175,7 @@ body {
   display: block;
   width: 100%;
   min-height: 12rem;
+  border-bottom: 1px solid #888;
   transition: var(--mainTransition);
 }
 .img-container:hover .product-img {
@@ -171,12 +189,80 @@ body {
   text-align: center;
 }
 .product h4 {
-  margin-top: 0.7rem;
+  margin: 0.5rem 0;
   letter-spacing: var(--mainSpacing);
   color: var(--primaryColor);
   text-align: center;
 }
 
+/* About */
+.about-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: var(--mainTransition);
+  background: rgba(240, 157, 81, 0.4);
+  z-index: 2;
+  visibility: hidden;
+}
+.about {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 3;
+  background: rgb(231, 226, 221);
+  padding: 1rem 1.5rem;
+  transition: var(--mainTransition);
+  transform: translateX(-100%);
+}
+.showAbout {
+  transform: translateX(0);
+}
+.transparentBcg {
+  visibility: visible;
+}
+@media screen and (min-width: 650px) {
+  .about {
+    width: 30vw;
+    min-width: 400px;
+  }
+}
+.close-about {
+  text-align: right;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+.about h2 {
+  text-transform: capitalize;
+  text-align: center;
+  color: rgb(6, 173, 103);
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 2rem;
+}
+.doctor,
+.address,
+.mobile {
+  margin: 1rem 0;
+}
+.doctor h3,
+.address h3,
+.mobile h3 {
+  margin-bottom: 0.6rem;
+  text-decoration: underline;
+  color: rgb(12, 113, 180);
+}
+.doctor h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+.address p {
+  margin-bottom: 0.5rem;
+}
 /* Cart */
 .cart-overlay {
   position: fixed;
@@ -211,7 +297,7 @@ body {
 @media screen and (min-width: 650px) {
   .cart {
     width: 30vw;
-    min-width: 450px;
+    min-width: 400px;
   }
 }
 .close-cart {
@@ -221,6 +307,7 @@ body {
 .cart h2 {
   text-transform: capitalize;
   text-align: center;
+  color: rgb(6, 173, 103);
   letter-spacing: var(--mainSpacing);
   margin-bottom: 2rem;
 }
@@ -266,4 +353,12 @@ body {
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
+}
+footer {
+  background-color: #444;
+  color: #eee;
+  padding: 0.9rem 0;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
 }

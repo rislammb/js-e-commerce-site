@@ -1,3 +1,7 @@
+const client = contentful.createClient({
+  space: '...........',
+  accessToken: '..............'
+});
 // Variables
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
@@ -8,6 +12,11 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
+// About
+const navIcon = document.querySelector('.nav-icon');
+const closeAboutBtn = document.querySelector('.close-about');
+const aboutDOM = document.querySelector('.about');
+const aboutOverlay = document.querySelector('.about-overlay');
 
 let cart = [];
 let buttonsDOM = [];
@@ -15,9 +24,14 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
-      const result = await fetch('products.json');
-      const data = await result.json();
-      const productsArray = data.items;
+      let contentful = await client.getEntries({
+        content_type: '...........'
+      });
+
+      // const result = await fetch('products.json');
+      // const data = await result.json();
+
+      const productsArray = contentful.items;
       const products = productsArray.map(item => {
         const { title, price } = item.fields;
         const { id } = item.sys;
@@ -103,6 +117,14 @@ class UI {
 
     cartContent.appendChild(div);
   }
+  showAbout() {
+    aboutOverlay.classList.add('transparentBcg');
+    aboutDOM.classList.add('showAbout');
+  }
+  hideAbout() {
+    aboutOverlay.classList.remove('transparentBcg');
+    aboutDOM.classList.remove('showAbout');
+  }
   showCart() {
     cartOverlay.classList.add('transparentBcg');
     cartDOM.classList.add('showCart');
@@ -115,6 +137,8 @@ class UI {
     cart = Storage.getCart();
     this.setCartValues(cart);
     this.populateCart(cart);
+    navIcon.addEventListener('click', this.showAbout);
+    closeAboutBtn.addEventListener('click', this.hideAbout);
     cartBtn.addEventListener('click', this.showCart);
     closeCartBtn.addEventListener('click', this.hideCart);
   }
