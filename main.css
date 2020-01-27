@@ -96,7 +96,7 @@ body {
 }
 .banner-btn {
   font-family: 'Titillium Web', sans-serif;
-  padding: 0.8rem 3rem;
+  padding: 0.5rem 2rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   font-size: 1rem;

@@ -1,11 +1,12 @@
 const client = contentful.createClient({
-  space: '...........',
-  accessToken: '..............'
+  space: '.............',
+  accessToken: '..................................'
 });
 // Variables
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
+const orderBtn = document.querySelector('.order-btn');
 const cartDOM = document.querySelector('.cart');
 const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
@@ -25,7 +26,7 @@ class Products {
   async getProducts() {
     try {
       let contentful = await client.getEntries({
-        content_type: '...........'
+        content_type: '.............'
       });
 
       // const result = await fetch('products.json');
@@ -147,6 +148,7 @@ class UI {
   }
   cartLogic() {
     clearCartBtn.addEventListener('click', () => this.clearCart());
+    orderBtn.addEventListener('click', () => this.orderCart());
     // Cart functionality
     cartContent.addEventListener('click', event => {
       if (event.target.classList.contains('remove-item')) {
@@ -181,11 +183,21 @@ class UI {
   clearCart() {
     const cartItems = cart.map(item => item.id);
     cartItems.forEach(id => this.removeItem(id));
-    console.log(cartContent.children);
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
     }
     this.hideCart();
+  }
+  orderCart() {
+    if (cart.length > 0) {
+      alert(
+        `Your shopping total is: ${cartTotal.innerText}\nThanks for stay with us.`
+      );
+      this.clearCart();
+      this.hideCart();
+    } else {
+      alert('Your shopping cart is empty!');
+    }
   }
   removeItem(id) {
     cart = cart.filter(item => item.id !== id);
