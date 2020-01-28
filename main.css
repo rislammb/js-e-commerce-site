@@ -96,7 +96,7 @@ body {
 }
 .banner-btn {
   font-family: 'Titillium Web', sans-serif;
-  padding: 0.5rem 2rem;
+  padding: 0.3rem 0.8rem;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
   font-size: 1rem;
@@ -226,12 +226,6 @@ body {
 .transparentBcg {
   visibility: visible;
 }
-@media screen and (min-width: 650px) {
-  .about {
-    width: 30vw;
-    min-width: 400px;
-  }
-}
 .close-about {
   text-align: right;
   font-size: 1.7rem;
@@ -295,9 +289,13 @@ body {
   visibility: visible;
 }
 @media screen and (min-width: 650px) {
+  .about,
   .cart {
     width: 30vw;
     min-width: 400px;
+  }
+  .banner-btn {
+    padding: 0.5rem 1.5rem;
   }
 }
 .close-cart {
@@ -353,6 +351,13 @@ body {
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
+}
+.cart-btn-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
 }
 footer {
   background-color: #444;

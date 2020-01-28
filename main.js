@@ -1,6 +1,6 @@
 const client = contentful.createClient({
-  space: '.............',
-  accessToken: '..................................'
+  space: '..........',
+  accessToken: '.......................................'
 });
 // Variables
 const cartBtn = document.querySelector('.cart-btn');
@@ -26,7 +26,7 @@ class Products {
   async getProducts() {
     try {
       let contentful = await client.getEntries({
-        content_type: '.............'
+        content_type: '..............'
       });
 
       // const result = await fetch('products.json');
